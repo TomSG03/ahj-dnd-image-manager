@@ -6,3 +6,6 @@
 - [x] Modern Image Manager 
 
 ## [Gh - Pages](https://tomsg03.github.io/ahj-dnd-image-manager/)
+
+---
+[Спискок задач](https://github.com/TomSG03/ahs-homeworks-list)
