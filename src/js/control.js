@@ -38,6 +38,7 @@ export default class Control {
 
     // 2. Получение изображения через FileReader -> async - Promise - await
     this.previewFile.bind(this)();
+    this.link.value = '';
   }
 
   previewFile() {
