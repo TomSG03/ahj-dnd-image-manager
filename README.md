@@ -1,6 +1,6 @@
 # Продвинутый JavaScript в браузере
 
-## [Домашнее задание к лекции «Обработка событий»](https://github.com/TomSG03/ahj-homeworks/tree/simplification/dnd)
+## [Домашнее задание к лекции «DND»](https://github.com/TomSG03/ahj-homeworks/tree/simplification/dnd)
 
 - [x] [DnD](https://github.com/TomSG03/ahj-dnd-trello)
 - [x] Modern Image Manager 
