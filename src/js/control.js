@@ -33,10 +33,13 @@ export default class Control {
   }
 
   evenAdd() {
+    // 1. Получение изображения через FileReader -> onloadend
+    // this.getFile.bind(this)();
+
+    // 2. Получение изображения через FileReader -> async - Promise - await
     this.previewFile.bind(this)();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   previewFile() {
     const reader = new FileReader();
     reader.readAsDataURL(this.link.files[0]);
@@ -47,29 +50,16 @@ export default class Control {
     };
   }
 
-  // async getFile() {
-  //   try {
-  //     const fileImg = await this.readFile(this.link.files[0]);
-  //     const img1 = new Blob([fileImg], { type: 'image/*' });
-  //     console.log(img1);
-  //     const img = document.createElement('img');
-  //     img.src = img1;
-  //     img.addEventListener('error', () => {
-  //       this.showError();
-  //     });
-  //     img.addEventListener('load', () => {
-  //       const htmlText = '<div class="delete"></div>';
-  //       const div = document.createElement('div');
-  //       div.classList = 'picture';
-  //       div.innerHTML = htmlText;
-  //       div.append(img);
-  //       this.host.append(div);
-  //       this.host.scrollLeft = this.host.scrollWidth;
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async getFile() {
+    try {
+      const fileImg = await this.readFile(this.link.files[0]);
+      const img = document.createElement('img');
+      img.src = fileImg;
+      this.flow.addFlow(img);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   // eslint-disable-next-line class-methods-use-this
   readFile(file) {
@@ -82,8 +72,7 @@ export default class Control {
         reject(evt.target.error);
       });
       reader.onerror = reject;
-
-      reader.readAsArrayBuffer(file);
+      reader.readAsDataURL(file);
     });
   }
 
